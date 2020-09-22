@@ -24,7 +24,7 @@ object Versions {
     const val retrofitLogging = "3.11.0"
     const val moshi = "1.8.0"
     const val moshiConverter = "2.8.1"
-    const val coroutineAndroid = "1.1.1"
+    const val coroutineAndroid = "1.3.9"
     const val coroutineAdapter = "0.9.2"
 
     // Image loading
@@ -81,6 +81,7 @@ object Libraries {
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val moshiKotlinCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+    const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutineAndroid}"
 
     // Image loading
     const val coil = "io.coil-kt:coil:${Versions.coil}"
