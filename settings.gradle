@@ -1,2 +1,3 @@
+include ':network'
 rootProject.name='Android-project-starter'
 include ':app'
