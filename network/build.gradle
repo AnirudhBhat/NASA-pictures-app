@@ -26,15 +26,17 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation Libraries.kotlin
-    implementation Libraries.coreKtx
-    implementation Libraries.appCompat
-    implementation Libraries.retrofitMoshiConverter
-    implementation Libraries.coroutineAndroid
-    implementation Libraries.coroutinesadapter
-    implementation Libraries.koinAndroid
-    implementation Libraries.koinViewModel
-    implementation Libraries.retrofitlogging
+    api Libraries.kotlin
+    api Libraries.coreKtx
+    api Libraries.appCompat
+    api Libraries.retrofitgsonconverter
+    api Libraries.gson
+    api Libraries.coroutineAndroid
+    api Libraries.coroutinesadapter
+    api Libraries.koinAndroid
+    api Libraries.koinViewModel
+    api Libraries.retrofitlogging
+    api Libraries.coreTesting
     testImplementation Libraries.junit
     androidTestImplementation Libraries.junitExt
     androidTestImplementation Libraries.espressoCore

@@ -26,6 +26,7 @@ object Versions {
     const val moshiConverter = "2.8.1"
     const val coroutineAndroid = "1.3.9"
     const val coroutineAdapter = "0.9.2"
+    const val gson = "2.8.6"
 
     // Image loading
     const val coil = "0.10.1"
@@ -80,6 +81,7 @@ object Libraries {
     const val retrofitlogging = "com.squareup.okhttp3:logging-interceptor:${Versions.retrofitLogging}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
     const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val moshiKotlinCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
