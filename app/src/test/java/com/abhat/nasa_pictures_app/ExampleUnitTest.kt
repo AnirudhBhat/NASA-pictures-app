@@ -1,4 +1,4 @@
-package com.abhat.android_project_starter
+package com.abhat.nasa_pictures_app
 
 import org.junit.Test
 
