@@ -4,12 +4,11 @@ import com.abhat.network.NetworkConstants
 import com.abhat.network.coroutinehelpers.CoroutineContextProvider
 import com.abhat.network.interceptors.MockInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 /**
@@ -24,12 +23,10 @@ val networkModule = module {
 }
 
 private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-    val moshi = Moshi.Builder()
-        .build()
 
     return Retrofit.Builder()
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(NetworkConstants.BASE_URL)
         .client(okHttpClient)
         .build()
