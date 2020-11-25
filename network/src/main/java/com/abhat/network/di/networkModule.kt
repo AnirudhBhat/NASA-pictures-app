@@ -2,7 +2,7 @@ package com.abhat.network.di
 
 import com.abhat.network.NetworkConstants
 import com.abhat.network.coroutinehelpers.CoroutineContextProvider
-import com.abhat.network.interceptors.HostSelectionInterceptor
+import com.abhat.network.interceptors.MockInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit
 val networkModule = module {
     single { provideOkHttpClient(get()) }
     single { provideRetrofit(get()) }
+    single { provideMockInterceptor() }
     single { provideCoroutineContextProvider() }
 }
 
@@ -34,16 +35,17 @@ private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         .build()
 }
 
-private fun provideOkHttpClient(interceptor: HostSelectionInterceptor): OkHttpClient {
+private fun provideOkHttpClient(interceptor: MockInterceptor): OkHttpClient {
     val logging = HttpLoggingInterceptor()
     logging.level = HttpLoggingInterceptor.Level.BODY
     return OkHttpClient.Builder()
         .addInterceptor(logging)
         .addInterceptor(interceptor)
-        .hostnameVerifier { hostname, session -> true }
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
 }
+
+private fun provideMockInterceptor() = MockInterceptor()
 
 private fun provideCoroutineContextProvider() = CoroutineContextProvider()
