@@ -32,6 +32,9 @@ dependencies {
     implementation Libraries.appCompat
     implementation Libraries.coreKtx
     implementation Libraries.constraintLayout
+    implementation Libraries.lifecycleExtensions
+    implementation Libraries.lifecycleViewmodel
+    implementation Libraries.mockitoKotlin
     testImplementation Libraries.junit
     androidTestImplementation Libraries.junitExt
     androidTestImplementation Libraries.espressoCore
