@@ -45,6 +45,7 @@ object Versions {
     const val appCompat = "1.2.0-beta01"
     const val coreKtx = "1.2.0"
     const val lifecycleCompiler = "2.0.0-rc01"
+    const val lifecycleExtensions = "2.2.0"
 
 
     // Dependency Injection
@@ -105,6 +106,8 @@ object Libraries {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycleCompiler}"
+    const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtensions}"
+    const val lifecycleViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleExtensions}"
 
     // Dependency injection
     const val koinAndroid = "org.koin:koin-android:${Versions.koinAndroid}"

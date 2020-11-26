@@ -7,20 +7,20 @@ import com.google.gson.annotations.SerializedName
  */
 data class NasaPictures(
     @SerializedName("copyright")
-    private val copyright: String,
+    val copyright: String,
     @SerializedName("date")
-    private val date: String,
+    val date: String,
     @SerializedName("explaination")
-    private val explaination: String,
+    val explaination: String,
     @SerializedName("hdurl")
-    private val hdurl: String,
+    val hdurl: String,
     @SerializedName("media_type")
-    private val mediaType: String,
+    val mediaType: String,
     @SerializedName("service_version")
-    private val serviceVersion: String,
+    val serviceVersion: String,
     @SerializedName("title")
-    private val title: String,
+    val title: String,
     @SerializedName("url")
-    private val url: String
+    val url: String
 
 )
