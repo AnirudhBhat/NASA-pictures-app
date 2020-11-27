@@ -23,6 +23,10 @@ android {
         }
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
 }
 
 dependencies {
@@ -32,6 +36,8 @@ dependencies {
     implementation Libraries.appCompat
     implementation Libraries.coreKtx
     implementation Libraries.constraintLayout
+    implementation Libraries.recyclerView
+    implementation Libraries.coil
     implementation Libraries.lifecycleExtensions
     implementation Libraries.lifecycleViewmodel
     implementation Libraries.mockitoKotlin

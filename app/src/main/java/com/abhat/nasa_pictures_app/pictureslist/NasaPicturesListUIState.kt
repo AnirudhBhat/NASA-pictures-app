@@ -6,7 +6,7 @@ import com.abhat.nasa_pictures_app.pictureslist.viewmodel.model.NasaPicturesView
  * Created by Anirudh Uppunda on 26,November,2020
  */
 data class NasaPicturesListUIState(
-    private val isLoading: Boolean = false,
-    private val picturesList: List<NasaPicturesViewModelModel>? = null,
-    private val error: Throwable? = null
+    val isLoading: Boolean = false,
+    val picturesList: List<NasaPicturesViewModelModel>? = null,
+    val error: Throwable? = null
 )

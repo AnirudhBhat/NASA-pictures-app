@@ -10,7 +10,7 @@ data class NasaPictures(
     val copyright: String,
     @SerializedName("date")
     val date: String,
-    @SerializedName("explaination")
+    @SerializedName("explanation")
     val explaination: String,
     @SerializedName("hdurl")
     val hdurl: String,

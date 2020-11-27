@@ -9,7 +9,7 @@ class MockInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val uri = chain.request().url().uri().toString()
         val responseString = when {
-            uri.endsWith("nasa/pictures") -> getNasaPictures
+            uri.endsWith("pictures") -> getNasaPictures
             else -> ""
         }
         return if (responseString.isNotEmpty()) {
