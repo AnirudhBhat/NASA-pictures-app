@@ -9,7 +9,7 @@ import kotlinx.coroutines.Deferred
  * Created by Anirudh Uppunda on 25,November,2020
  */
 class FakeNasaApi(private val response: List<NasaPictures>): NasaApi {
-    override suspend fun getNasaPictures(): Deferred<List<NasaPictures>> {
+    override fun getNasaPictures(): Deferred<List<NasaPictures>> {
         return CompletableDeferred(response)
     }
 }

@@ -8,7 +8,7 @@ import kotlinx.coroutines.Deferred
  * Created by Anirudh Uppunda on 25,November,2020
  */
 class FakeNasaApiWhichThrowsError(private val error: Exception): NasaApi {
-    override suspend fun getNasaPictures(): Deferred<List<NasaPictures>> {
+    override fun getNasaPictures(): Deferred<List<NasaPictures>> {
         throw error
     }
 }
