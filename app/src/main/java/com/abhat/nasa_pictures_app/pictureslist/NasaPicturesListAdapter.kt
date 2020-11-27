@@ -12,7 +12,10 @@ import kotlinx.android.synthetic.main.item_nasa_pictures_list.view.*
 /**
  * Created by Anirudh Uppunda on 27,November,2020
  */
-class NasaPicturesListAdapter(private var nasaPicturesList: List<NasaPicturesViewModelModel>?) :
+class NasaPicturesListAdapter(
+    private var nasaPicturesList: List<NasaPicturesViewModelModel>?,
+    private val listener: (NasaPicturesViewModelModel?) -> Unit
+) :
     RecyclerView.Adapter<NasaPicturesListAdapter.NasaPicturesListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NasaPicturesListViewHolder {
@@ -36,6 +39,10 @@ class NasaPicturesListAdapter(private var nasaPicturesList: List<NasaPicturesVie
                 iv_nasa_picture.load(nasaPicturesList?.get(position)?.url) {
                     crossfade(true)
                     placeholder(android.R.color.darker_gray)
+                }
+
+                iv_nasa_picture.setOnClickListener {
+                    listener(nasaPicturesList?.get(position))
                 }
             }
         }

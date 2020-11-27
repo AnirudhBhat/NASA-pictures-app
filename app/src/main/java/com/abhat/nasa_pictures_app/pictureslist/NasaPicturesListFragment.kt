@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.abhat.nasa_pictures_app.R
+import com.abhat.nasa_pictures_app.picturedetail.NasaPictureDetailFragment
 import com.abhat.nasa_pictures_app.pictureslist.viewmodel.NasaPicturesListViewModel
 import kotlinx.android.synthetic.main.fragment_nasa_pictures_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -51,9 +52,18 @@ class NasaPicturesListFragment: Fragment() {
     private fun setupRecyclerView() {
         with (rv_nasa_pictures) {
             layoutManager = GridLayoutManager(activity, 2)
-            adapter = NasaPicturesListAdapter(null)
+            adapter = NasaPicturesListAdapter(null) {
+                createFragment(NasaPictureDetailFragment.newInstance(it))
+            }
             (adapter as NasaPicturesListAdapter).stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         }
+    }
+
+    private fun createFragment(fragment: Fragment) {
+        val ft = activity?.supportFragmentManager?.beginTransaction()
+        ft?.replace(R.id.container, fragment)
+        ft?.addToBackStack(null)
+        ft?.commitAllowingStateLoss()
     }
 
     companion object {

@@ -39,7 +39,7 @@ object Versions {
     const val recyclerView = "1.2.0-alpha02"
     const val swipeRefreshLayout = "1.1.0"
     const val material = "1.1.0"
-    const val constraintLayout = "1.1.3"
+    const val constraintLayout = "2.0.1"
 
     // Android
     const val appCompat = "1.2.0-beta01"
