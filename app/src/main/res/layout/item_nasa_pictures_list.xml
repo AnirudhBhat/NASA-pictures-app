@@ -16,6 +16,7 @@
         android:scaleType="centerCrop"
         android:foreground="@drawable/ic_drawable_ripple"
         android:clickable="true"
+        android:transitionName="nasa_picture"
         tools:src="@mipmap/ic_launcher"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

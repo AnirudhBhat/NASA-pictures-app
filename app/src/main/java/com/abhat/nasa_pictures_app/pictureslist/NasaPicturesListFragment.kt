@@ -19,6 +19,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
  */
 class NasaPicturesListFragment: Fragment() {
 
+    private var nasaPicturesListUIState: NasaPicturesListUIState? = null
     private val nasaPicturesListViewModel: NasaPicturesListViewModel by viewModel()
 
     override fun onCreateView(
@@ -39,6 +40,7 @@ class NasaPicturesListFragment: Fragment() {
 
     private fun observeViewModel() {
         nasaPicturesListViewModel.getNasaPicturesListUIState().observe(viewLifecycleOwner, Observer {
+            this.nasaPicturesListUIState = it
             render(it)
         })
     }
@@ -52,8 +54,8 @@ class NasaPicturesListFragment: Fragment() {
     private fun setupRecyclerView() {
         with (rv_nasa_pictures) {
             layoutManager = GridLayoutManager(activity, 2)
-            adapter = NasaPicturesListAdapter(null) {
-                createFragment(NasaPictureDetailFragment.newInstance(it))
+            adapter = NasaPicturesListAdapter(null) { position, nasaPictureViewModelModel ->
+                createFragment(NasaPictureDetailFragment.newInstance(position, nasaPicturesListUIState?.picturesList?.size ?: 0, ArrayList(nasaPicturesListUIState?.picturesList ?: listOf())))
             }
             (adapter as NasaPicturesListAdapter).stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         }
@@ -61,9 +63,10 @@ class NasaPicturesListFragment: Fragment() {
 
     private fun createFragment(fragment: Fragment) {
         val ft = activity?.supportFragmentManager?.beginTransaction()
+        ft?.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
         ft?.replace(R.id.container, fragment)
         ft?.addToBackStack(null)
-        ft?.commitAllowingStateLoss()
+        ft?.commit()
     }
 
     companion object {

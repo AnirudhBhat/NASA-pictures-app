@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import coil.api.load
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.abhat.nasa_pictures_app.R
 import com.abhat.nasa_pictures_app.pictureslist.viewmodel.model.NasaPicturesViewModelModel
 import kotlinx.android.synthetic.main.fragment_nasa_pictures_detail.*
@@ -15,7 +16,9 @@ import kotlinx.android.synthetic.main.fragment_nasa_pictures_detail.*
  */
 class NasaPictureDetailFragment: Fragment() {
 
-    private var nasaPicturesViewModelModel: NasaPicturesViewModelModel? = null
+    private var position: Int = 0
+    private var viewpagerSize: Int = 0
+    private var nasaPicturesViewModelModel: List<NasaPicturesViewModelModel>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,30 +32,48 @@ class NasaPictureDetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         readBundle()
-        render()
+        setupViewPager()
+//        render()
     }
 
-    private fun render() {
-        nasaPicturesViewModelModel?.let { nasaPicturesViewModelModel ->
-            iv_picture.load(nasaPicturesViewModelModel.url)
-            tv_explanation.text = nasaPicturesViewModelModel.explaination
-        }
+    private fun setupViewPager() {
+        vp_nasa_picture_details.adapter = NasaPicturesDetailPagerAdapter(activity!!)
+        vp_nasa_picture_details.setCurrentItem( position ?: 0, false)
     }
+
 
     private fun readBundle() {
         val bundle = arguments
         bundle?.let { bundle ->
             if (bundle.containsKey("nasa_pictures_model")) {
-                nasaPicturesViewModelModel = bundle.getParcelable("nasa_pictures_model")
+                nasaPicturesViewModelModel = bundle.getParcelableArrayList("nasa_pictures_model")
+            }
+            if (bundle.containsKey("size")) {
+                viewpagerSize = bundle.getInt("size")
+            }
+            if (bundle.containsKey("position")) {
+                position = bundle.getInt("position")
             }
         }
     }
 
+    inner class NasaPicturesDetailPagerAdapter(fa: FragmentActivity): FragmentStateAdapter(fa) {
+        override fun getItemCount(): Int {
+            return viewpagerSize
+        }
+
+        override fun createFragment(pos: Int): Fragment {
+            return NasaPictureDetailPagerFragment.newInstance(nasaPicturesViewModelModel?.get(pos))
+        }
+    }
+
     companion object {
-        fun newInstance(nasaPicturesViewModelModel: NasaPicturesViewModelModel?): NasaPictureDetailFragment {
+        fun newInstance(position: Int, nasaPicturesSize: Int, nasaPicturesViewModelModelList: ArrayList<NasaPicturesViewModelModel>?): NasaPictureDetailFragment {
             val fragment = NasaPictureDetailFragment()
             val bundle = Bundle()
-            bundle.putParcelable("nasa_pictures_model", nasaPicturesViewModelModel)
+            bundle.putInt("position", position)
+            bundle.putInt("size", nasaPicturesSize)
+            bundle.putParcelableArrayList("nasa_pictures_model", nasaPicturesViewModelModelList)
             fragment.arguments = bundle
             return fragment
         }

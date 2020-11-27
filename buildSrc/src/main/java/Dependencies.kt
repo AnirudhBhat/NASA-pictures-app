@@ -40,6 +40,7 @@ object Versions {
     const val swipeRefreshLayout = "1.1.0"
     const val material = "1.1.0"
     const val constraintLayout = "2.0.1"
+    const val viewpager = "1.0.0"
 
     // Android
     const val appCompat = "1.2.0-beta01"
@@ -101,6 +102,7 @@ object Libraries {
     const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val viewpager = "androidx.viewpager2:viewpager2:${Versions.viewpager}"
 
     // Android
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"

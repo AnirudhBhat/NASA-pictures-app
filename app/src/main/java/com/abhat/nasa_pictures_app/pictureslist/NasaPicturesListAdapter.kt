@@ -3,18 +3,20 @@ package com.abhat.nasa_pictures_app.pictureslist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.abhat.nasa_pictures_app.R
 import com.abhat.nasa_pictures_app.pictureslist.viewmodel.model.NasaPicturesViewModelModel
 import kotlinx.android.synthetic.main.item_nasa_pictures_list.view.*
+import kotlinx.android.synthetic.main.item_viewpager_fragment_nasa_pictures.view.*
 
 /**
  * Created by Anirudh Uppunda on 27,November,2020
  */
 class NasaPicturesListAdapter(
     private var nasaPicturesList: List<NasaPicturesViewModelModel>?,
-    private val listener: (NasaPicturesViewModelModel?) -> Unit
+    private val listener: (Int, NasaPicturesViewModelModel?) -> Unit
 ) :
     RecyclerView.Adapter<NasaPicturesListAdapter.NasaPicturesListViewHolder>() {
 
@@ -42,7 +44,8 @@ class NasaPicturesListAdapter(
                 }
 
                 iv_nasa_picture.setOnClickListener {
-                    listener(nasaPicturesList?.get(position))
+                    ViewCompat.setTransitionName(iv_nasa_picture,nasaPicturesList?.get(position)?.url)
+                    listener(position, nasaPicturesList?.get(position))
                 }
             }
         }
