@@ -46,6 +46,8 @@ class NasaPictureDetailPagerFragment: Fragment() {
         nasaPicturesViewModelModel?.let { nasaPicturesViewModelModel ->
             iv_picture.load(nasaPicturesViewModelModel.url)
             tv_explanation.text = nasaPicturesViewModelModel.explaination
+            tv_title.text = nasaPicturesViewModelModel.title
+            tv_date.text = nasaPicturesViewModelModel.date
         }
     }
 

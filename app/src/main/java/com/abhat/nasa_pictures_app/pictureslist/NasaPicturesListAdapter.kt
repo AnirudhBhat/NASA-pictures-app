@@ -40,7 +40,7 @@ class NasaPicturesListAdapter(
             with(itemView) {
                 iv_nasa_picture.load(nasaPicturesList?.get(position)?.url) {
                     crossfade(true)
-                    placeholder(android.R.color.darker_gray)
+                    placeholder(R.mipmap.ic_launcher)
                 }
 
                 iv_nasa_picture.setOnClickListener {

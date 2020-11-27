@@ -46,6 +46,11 @@ class NasaPicturesListFragment: Fragment() {
     }
 
     private fun render(nasaPicturesListUIState: NasaPicturesListUIState?) {
+        if (nasaPicturesListUIState?.isLoading ==true) {
+            progress_bar.visibility = View.VISIBLE
+        } else {
+            progress_bar.visibility = View.GONE
+        }
         nasaPicturesListUIState?.picturesList?.let {
             (rv_nasa_pictures.adapter as? NasaPicturesListAdapter)?.updateNasaPictures(it)
         }

@@ -37,8 +37,10 @@ class NasaPictureDetailFragment: Fragment() {
     }
 
     private fun setupViewPager() {
-        vp_nasa_picture_details.adapter = NasaPicturesDetailPagerAdapter(activity!!)
-        vp_nasa_picture_details.setCurrentItem( position ?: 0, false)
+        activity?.let { activity ->
+            vp_nasa_picture_details.adapter = NasaPicturesDetailPagerAdapter(activity)
+            vp_nasa_picture_details.setCurrentItem( position, false)
+        }
     }
 
 
