@@ -12,8 +12,8 @@ I have used MVI architecture for this app. Unidirection data flow helps and make
 
 ## Things that could have been improved the app
 
-<ol>Shimmer effect for loading</ol>
-<ol>Better icon and placeholder</ol>
+1. Shimmer effect for loading
+2. Better icon and placeholder
 
 <br>
 
