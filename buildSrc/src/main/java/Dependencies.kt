@@ -4,7 +4,7 @@
 object Versions {
 
     // General app info
-    const val applicationId = "com.abhat.android_project_starter"
+    const val applicationId = "com.abhat.nasa_pictures_app"
     const val minSdk = 21
     const val targetSdk = 29
     const val compileSdk = 29
