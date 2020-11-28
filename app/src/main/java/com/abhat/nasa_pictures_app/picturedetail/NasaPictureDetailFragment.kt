@@ -33,7 +33,6 @@ class NasaPictureDetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         readBundle()
         setupViewPager()
-//        render()
     }
 
     private fun setupViewPager() {

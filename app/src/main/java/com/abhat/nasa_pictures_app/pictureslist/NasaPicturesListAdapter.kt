@@ -44,7 +44,6 @@ class NasaPicturesListAdapter(
                 }
 
                 iv_nasa_picture.setOnClickListener {
-                    ViewCompat.setTransitionName(iv_nasa_picture,nasaPicturesList?.get(position)?.url)
                     listener(position, nasaPicturesList?.get(position))
                 }
             }

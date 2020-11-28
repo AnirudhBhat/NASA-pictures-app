@@ -29,7 +29,6 @@ class NasaPictureDetailPagerFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         readBundle()
-        iv_picture.transitionName = nasaPicturesViewModelModel?.url
         render()
     }
 
