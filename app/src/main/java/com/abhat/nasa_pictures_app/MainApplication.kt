@@ -13,5 +13,6 @@ class MainApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin(this, listOf(networkModule, appModule))
+        ConnectionMonitorLiveData.init(this)
     }
 }

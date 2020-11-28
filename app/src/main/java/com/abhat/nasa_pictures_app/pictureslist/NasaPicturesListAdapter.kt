@@ -41,6 +41,7 @@ class NasaPicturesListAdapter(
                 iv_nasa_picture.load(nasaPicturesList?.get(position)?.url) {
                     crossfade(true)
                     placeholder(R.mipmap.ic_launcher)
+                    error(R.mipmap.ic_launcher)
                 }
 
                 iv_nasa_picture.setOnClickListener {

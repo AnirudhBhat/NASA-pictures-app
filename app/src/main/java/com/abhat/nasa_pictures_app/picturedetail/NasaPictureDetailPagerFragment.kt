@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import coil.api.load
+import com.abhat.nasa_pictures_app.Constants.NASA_PICTURES_MODEL
 import com.abhat.nasa_pictures_app.R
 import com.abhat.nasa_pictures_app.pictureslist.viewmodel.model.NasaPicturesViewModelModel
 import kotlinx.android.synthetic.main.item_viewpager_fragment_nasa_pictures.*
@@ -35,8 +36,8 @@ class NasaPictureDetailPagerFragment: Fragment() {
     private fun readBundle() {
         val bundle = arguments
         bundle?.let { bundle ->
-            if (bundle.containsKey("nasa_pictures_model")) {
-                nasaPicturesViewModelModel = bundle.getParcelable("nasa_pictures_model")
+            if (bundle.containsKey(NASA_PICTURES_MODEL)) {
+                nasaPicturesViewModelModel = bundle.getParcelable(NASA_PICTURES_MODEL)
             }
         }
     }
@@ -54,7 +55,7 @@ class NasaPictureDetailPagerFragment: Fragment() {
         fun newInstance(nasaPicturesViewModelModel: NasaPicturesViewModelModel?): NasaPictureDetailPagerFragment {
             val fragment = NasaPictureDetailPagerFragment()
             val bundle = Bundle()
-            bundle.putParcelable("nasa_pictures_model", nasaPicturesViewModelModel)
+            bundle.putParcelable(NASA_PICTURES_MODEL, nasaPicturesViewModelModel)
             fragment.arguments = bundle
             return fragment
         }

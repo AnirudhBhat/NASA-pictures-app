@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.abhat.nasa_pictures_app.Constants.NASA_PICTURES_MODEL
+import com.abhat.nasa_pictures_app.Constants.POSITION
+import com.abhat.nasa_pictures_app.Constants.SIZE
 import com.abhat.nasa_pictures_app.R
 import com.abhat.nasa_pictures_app.pictureslist.viewmodel.model.NasaPicturesViewModelModel
 import kotlinx.android.synthetic.main.fragment_nasa_pictures_detail.*
@@ -46,14 +49,14 @@ class NasaPictureDetailFragment: Fragment() {
     private fun readBundle() {
         val bundle = arguments
         bundle?.let { bundle ->
-            if (bundle.containsKey("nasa_pictures_model")) {
-                nasaPicturesViewModelModel = bundle.getParcelableArrayList("nasa_pictures_model")
+            if (bundle.containsKey(NASA_PICTURES_MODEL)) {
+                nasaPicturesViewModelModel = bundle.getParcelableArrayList(NASA_PICTURES_MODEL)
             }
-            if (bundle.containsKey("size")) {
-                viewpagerSize = bundle.getInt("size")
+            if (bundle.containsKey(SIZE)) {
+                viewpagerSize = bundle.getInt(SIZE)
             }
-            if (bundle.containsKey("position")) {
-                position = bundle.getInt("position")
+            if (bundle.containsKey(POSITION)) {
+                position = bundle.getInt(POSITION)
             }
         }
     }
@@ -72,9 +75,9 @@ class NasaPictureDetailFragment: Fragment() {
         fun newInstance(position: Int, nasaPicturesSize: Int, nasaPicturesViewModelModelList: ArrayList<NasaPicturesViewModelModel>?): NasaPictureDetailFragment {
             val fragment = NasaPictureDetailFragment()
             val bundle = Bundle()
-            bundle.putInt("position", position)
-            bundle.putInt("size", nasaPicturesSize)
-            bundle.putParcelableArrayList("nasa_pictures_model", nasaPicturesViewModelModelList)
+            bundle.putInt(POSITION, position)
+            bundle.putInt(SIZE, nasaPicturesSize)
+            bundle.putParcelableArrayList(NASA_PICTURES_MODEL, nasaPicturesViewModelModelList)
             fragment.arguments = bundle
             return fragment
         }
