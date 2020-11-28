@@ -60,7 +60,7 @@ class NasaPicturesListViewModelTest {
     }
 
     @Test
-    fun `getNasaPictures must show loading, return erro response and then hide loading on error`() {
+    fun `getNasaPictures must show loading, return error response and then hide loading on error`() {
         runBlocking {
             // Given
             val response = RuntimeException()
