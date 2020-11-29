@@ -43,6 +43,6 @@ class NasaPicturesListActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val TAG = "nasa_pictures_list"
+        private const val TAG = "nasa_pictures_list"
     }
 }
