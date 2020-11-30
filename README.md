@@ -18,6 +18,14 @@ I have used MVI architecture for this app. Unidirection data flow helps and make
 
 <br>
 
+## Tests
+
+This project has unit tests for repository and viewmodel <br>
+To run all the unit tests just enter the below command <br>
+./gradlew test 
+
+<br>
+
 ## Things that could have been improved the app
 
 1. Shimmer effect for loading
