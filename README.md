@@ -1,4 +1,4 @@
-![Android Unit Tests](https://github.com/AnirudhBhat/Reddit-client/workflows/Android%20Unit%20Tests/badge.svg)
+![Android Unit Tests](https://github.com/AnirudhBhat/NASA-pictures-app/workflows/Android%20Unit%20Tests/badge.svg)
 
 # NASA-pictures-app
 
