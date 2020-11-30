@@ -14,7 +14,8 @@ Just clone this repository and you should be good to run the app
 
 ## Architecture
 
-I have used MVI architecture for this app. Unidirection data flow helps and makes writing unit tests a breeze.
+I have used MVI architecture for this app. Unidirection data flow helps and makes writing unit tests a breeze. <br>
+Since the data was static json file, i have used `Interceptor` from `Retrofit` to mock the network request.
 
 <br>
 
