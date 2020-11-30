@@ -38,6 +38,8 @@ To run all the unit tests just enter the below command <br>
 
 UI and integration tests. This project has 0 UI and integration tests since i don't have good experience writing UI tests
 
+<br>
+
 ## Why is the initial commit dating back to August?
 
 That's because i have cloned this Repo from my android starter project template which had the base setup ready. The commits related to this project starts from November 25
